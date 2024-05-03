@@ -24,7 +24,7 @@ function login() {
     router.push('/pages/index/index');
   } else {
     uni.showToast({
-      title: '登录失败',
+      title: '登录失败!',
       icon: 'none'
     });
   }
