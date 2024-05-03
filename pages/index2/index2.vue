@@ -1,6 +1,6 @@
 <template>
 	<view class="content">
-		nextpage
+		nextpage2
 	</view>
 </template>
 
