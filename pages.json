@@ -7,13 +7,6 @@
 			}
 		},
 		{
-			"path" : "pages/index2/index2",
-			"style" : 
-			{
-				"navigationBarTitleText" : ""
-			}
-		},
-		{
 			"path" : "pages/message/message",
 			"style" : 
 			{
