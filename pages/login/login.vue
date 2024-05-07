@@ -21,7 +21,9 @@ const router = useRouter();
 
 function login() {
   if (studentId.value === '123456' && password.value === '123456') {
-    router.push('/pages/message/message');
+    uni.switchTab({
+        url: '/pages/message/message'});
+    
   } else {
     uni.showToast({
       title: '登录失败!',

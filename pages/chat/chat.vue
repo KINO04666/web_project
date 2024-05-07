@@ -1,7 +1,9 @@
 <template>
   <view class="chat-container">
     <!-- 顶部标题栏显示聊天对象名称 -->
-    <view class="chat-header">{{ chatName }}</view>
+    <view class="chat-header">{{ chatName }}
+	      <view class="back-button" @click="goBack">&#9664; 返回</view>
+	</view>
     <!-- 消息列表区 -->
     <view class="message-list">
       <view v-for="(message, index) in messages" :key="index" :class="{'my-message': message.isMine, 'other-message': !message.isMine}">
@@ -41,25 +43,41 @@ export default {
         });
         this.newMessage = '';
       }
-    }
+    },
+	  goBack() {
+	    // 实现返回上一页的功能
+	    uni.navigateBack({
+	      delta: 1 // 返回上一级页面
+	    });
+	  }
   },
   onLoad(options) {
-      // 确保这里使用的方法名和你的实际框架版本匹配
-      this.chatName = options.name || '未知联系人'; // 从路由参数中获取聊天对象名称
-    },
+    // 使用decodeURIComponent解码接收到的名称
+    this.chatName = decodeURIComponent(options.name || '未知联系人');
+  }
 }
 </script>
 
 <style scoped>
+.back-button {
+  position: absolute;
+  left: 10px; /* 设置左侧的具体位置 */
+  top: 10px; /* 根据需要调整垂直位置 */
+  font-size: 16px;
+  cursor: pointer;
+}
 .chat-container {
   display: flex;
   flex-direction: column;
   height: 100%;
 }
 .chat-header {
+  display: flex;
+  align-items: center;
+  justify-content: center; /* 确保整体内容居中 */
+  position: relative; /* 为绝对定位的返回按钮设置相对定位的参考 */
   padding: 10px;
   font-size: 18px;
-  text-align: center;
   background-color: #f3f3f3;
 }
 .message-list {
