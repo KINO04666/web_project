@@ -1,6 +1,6 @@
 <template>
-	<view class="content">
-		nextpage2
+	<view>
+		
 	</view>
 </template>
 
